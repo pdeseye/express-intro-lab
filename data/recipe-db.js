@@ -1,4 +1,4 @@
-const receipes = [
+const recipes = [
   {text: 'Corn Poblano Lasanga', done: true, _id: 'Mexican'},
   {text: 'Saag Paneer', done: true, _id: 'Indian'},
   {text: 'Fettuccine Alfredo', done: false, _id: 'Italian'},
@@ -12,7 +12,7 @@ const find = (conditions, callback) => {
       throw new TypeError('Please pass in an object')
     }
     // If the object is empty, return all the todos
-    if (Object.keys(conditions).length === 0) return callback(null, receipes)
+    if (Object.keys(conditions).length === 0) return callback(null, recipes)
 	// deal with errors
   } catch (error) {
     console.log(error)

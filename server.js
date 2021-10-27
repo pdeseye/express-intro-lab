@@ -1,9 +1,9 @@
 // import modules
 
 import express from 'express'
-import * as receipeDb from "./data/receipe-db.js"
+import * as recipeDb from "./data/recipe-db.js"
 
-console.log(receipeDb)
+console.log(recipeDb)
 
 // Create Express application
 
@@ -20,11 +20,20 @@ app.set("view engine", "ejs")
 // Mount routes
 
 // localhost:3000/
-app.get("/receipes", function(req, res){
-  receipeDb.find({}, function (error, receipes) {
-    res.render("receipes/index", {
+app.get("/", function(req, res) {
+  // redirects to localhost:3000/home from localhost:3000
+  res.redirect("/home")
+})
+
+// localhost:3000/home
+app.get("/home", function(req, res) {
+  res.send("<h1>Recipes</h1>")
+})
+app.get("/recipes", function(req, res){
+  recipeDb.find({}, function (error, recipes) {
+    res.render("recipes/index", {
       error: error,
-      receipes:receipes
+      recipes: recipes
     })
   })
 })
