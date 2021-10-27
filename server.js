@@ -29,6 +29,7 @@ app.get("/", function(req, res) {
 app.get("/home", function(req, res) {
   res.send("<h1>Recipes</h1>")
 })
+
 app.get("/recipes", function(req, res){
   recipeDb.find({}, function (error, recipes) {
     res.render("recipes/index", {
